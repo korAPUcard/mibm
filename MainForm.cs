@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,7 +34,7 @@ namespace MultipleIntelligentBotManager
         private void Splash()
         {
             splasher = new Splasher("Multiple Intelligent Bot Manager", "v0.1.0-experimental");
-            splasher.Show(); this.Activate();
+            splasher.Show(); Thread.Sleep(2000);
         }
 
         private void MainForm_Shown(object sender, EventArgs e) { splasher.Close(); }
@@ -41,7 +42,9 @@ namespace MultipleIntelligentBotManager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            splasher.Close();
+            this.Activate();
+            //ThemeChanger();
         }
     }
 }
